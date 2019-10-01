@@ -3,24 +3,26 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
+#include "Components/ActorComponent.h"
 #include "QuestLog.generated.h"
 
-UCLASS()
-class SURVIVE_API AQuestLog : public AActor
+
+UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+class SURVIVE_API UQuestLog : public UActorComponent
 {
 	GENERATED_BODY()
-	
+
 public:	
-	// Sets default values for this actor's properties
-	AQuestLog();
+	// Sets default values for this component's properties
+	UQuestLog();
 
 protected:
-	// Called when the game starts or when spawned
+	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:	
 	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+		
 };

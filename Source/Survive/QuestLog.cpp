@@ -2,25 +2,32 @@
 
 #include "QuestLog.h"
 
-// Sets default values
-AQuestLog::AQuestLog()
+// Sets default values for this component's properties
+UQuestLog::UQuestLog()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
+	// off to improve performance if you don't need them.
+	PrimaryComponentTick.bCanEverTick = true;
 
+	// ...
 }
 
-// Called when the game starts or when spawned
-void AQuestLog::BeginPlay()
+
+// Called when the game starts
+void UQuestLog::BeginPlay()
 {
 	Super::BeginPlay();
+
+	// ...
 	
 }
 
-// Called every frame
-void AQuestLog::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 
+// Called every frame
+void UQuestLog::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+
+	// ...
 }
 
