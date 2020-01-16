@@ -7,6 +7,9 @@
 #include "QuestLog.generated.h"
 
 
+
+
+
 UCLASS(Blueprintable, BlueprintType, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class SURVIVE_API UQuestLog : public UActorComponent
 {
@@ -15,7 +18,7 @@ class SURVIVE_API UQuestLog : public UActorComponent
 public:	
 	// Sets default values for this component's properties
 	UQuestLog();
-
+	
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -24,5 +27,13 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Quests")
+		TArray<class AQuest*> QuestsA;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Quests")
+		AQuest* ActiveQuestA;
+
+	UFUNCTION(BlueprintCallable, Category = "Quests")
+		void AddQuestToLog(AQuest* QuestToAdd);
 		
+	
 };

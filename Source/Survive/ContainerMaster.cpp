@@ -24,3 +24,7 @@ void AContainerMaster::Tick(float DeltaTime)
 
 }
 
+void AContainerMaster::Interact_Implementation(const AActor * Interactor, bool & Success)
+{
+}
+

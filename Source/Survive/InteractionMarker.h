@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Interacts.h"
 #include "InteractionMarker.generated.h"
 
 UCLASS()
-class SURVIVE_API AInteractionMarker : public AActor
+class SURVIVE_API AInteractionMarker : public AActor, public IInteracts
 {
 	GENERATED_BODY()
 	
@@ -23,4 +24,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interact")
+		void Interact(const AActor* Interactor, bool& Success);
+	virtual void Interact_Implementation(const AActor* Interactor, bool& Success) override;
 };

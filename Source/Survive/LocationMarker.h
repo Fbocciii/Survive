@@ -22,5 +22,11 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Location")
+		FText LoactionNameA;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Location")
+		class USphereComponent* SphereA;
+	UFUNCTION()
+		void Overlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult);
 };

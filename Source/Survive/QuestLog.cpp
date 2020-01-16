@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "QuestLog.h"
+#include "Quest.h"
 
 // Sets default values for this component's properties
 UQuestLog::UQuestLog()
@@ -29,5 +30,10 @@ void UQuestLog::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompon
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	// ...
+}
+
+void UQuestLog::AddQuestToLog(AQuest * QuestToAdd)
+{
+	QuestsA.AddUnique(QuestToAdd);
 }
 
